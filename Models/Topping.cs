@@ -1,12 +1,12 @@
 namespace PizzaStoreInMemory.Models
 {
-    public class Pizza
+    public class Topping
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public required string Name { get; set; }
         public string? Description { get; set; }
         public float Price { get; set; }
         // Skip navigation
-        public List<Topping> Toppings { get; set; } = [];
+        public List<Pizza> Pizzas { get; set; } = [];
     }
 }
