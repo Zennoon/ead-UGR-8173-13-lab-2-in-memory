@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
+using PizzaStoreInMemory.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ builder.Services.AddSwaggerGen(config =>
         Version = "v1"
     }
     );
+});
+
+builder.Services.AddDbContext<PizzaStoreInMemoryDbContext>(config =>
+{
+    config.UseInMemoryDatabase("pizzas");
 });
 
 var app = builder.Build();
